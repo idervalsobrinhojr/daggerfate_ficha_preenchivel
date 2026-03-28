@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha · experiência com campos largos · anotações em baixo</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+        body {
+            background: #e2e8f0;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .ficha-container {
+            max-width: 1500px;
+            width: 100%;
+            background: #f8fafc;
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -8px rgba(0,20,30,0.3);
+            padding: 2rem 2rem 2.5rem;
+            border: 1px solid #cbd5e1;
+        }
+        h1 {
+            margin: 0 0 0.25rem 0;
+            font-weight: 400;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            color: #0f172a;
+            border-bottom: 3px double #94a3b8;
+            padding-bottom: 0.5rem;
+            text-align: center;
+        }
+        .sub {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #475569;
+            margin-top: -0.2rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        /* GRADE SUPERIOR – agora com colunas mais equilibradas */
+        .grid-superior {
+            display: grid;
+            grid-template-columns: 1.2fr 0.9fr 1.8fr 1.3fr;  /* coluna 3 (experiência) ganhou mais espaço */
+            gap: 1.5rem;
+            align-items: start;
+            margin-bottom: 2rem;
+        }
+
+        /* COLUNA 1 (esquerda): nome/ancestralidade/comunidade + atributos */
+        .coluna-esquerda {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+        .linha-tres-campos {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        .campo-bloco {
+            flex: 1 1 120px;
+            background: white;
+            border-radius: 20px;
+            padding: 0.8rem 0.6rem 0.6rem;
+            box-shadow: inset 0 1px 4px #cbd5e1, 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid #cbd5e1;
+        }
+        .campo-bloco label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 0.2rem;
+        }
+        .campo-bloco input {
+            width: 100%;
+            border: none;
+            background: #f1f5f9;
+            border-radius: 40px;
+            padding: 0.6rem 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #0f172a;
+            outline: 1px solid transparent;
+            transition: 0.15s;
+        }
+        .campo-bloco input:focus {
+            outline: 2px solid #3b82f6;
+            background: #ffffff;
+        }
+
+        .atributos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.7rem;
+            background: #e9eef3;
+            padding: 1.2rem 1rem;
+            border-radius: 36px;
+            border: 1px solid #b9c7da;
+        }
+        .atributo-item {
+            background: white;
+            border-radius: 30px;
+            padding: 0.6rem 0.4rem 0.5rem;
+            text-align: center;
+            box-shadow: 0 2px 5px #00000010;
+        }
+        .atributo-item label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #1e293b;
+            display: block;
+            text-transform: uppercase;
+        }
+        .atributo-item input {
+            width: 80%;
+            border: none;
+            background: #f1f4f9;
+            border-radius: 30px;
+            padding: 0.4rem 0.5rem;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0b1e33;
+            margin-top: 3px;
+        }
+        .atributo-item input:focus {
+            outline: 2px solid #2563eb;
+            background: white;
+        }
+
+        /* COLUNA 2: evasões físicas, social, mental (coluna vertical) */
+        .coluna-evasoes {
+            background: #d9e2ef;
+            border-radius: 40px;
+            padding: 1.6rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            border: 1px solid #a5b8d0;
+            box-shadow: inset 0 2px 6px #a5b8d080;
+        }
+        .evasao-bloco {
+            background: white;
+            border-radius: 40px;
+            padding: 1rem 0.8rem;
+            text-align: center;
+            border: 1px solid #a0b4cd;
+        }
+        .evasao-bloco label {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0c4a6e;
+            display: block;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .evasao-bloco label small {
+            font-weight: 400;
+            font-size: 0.8rem;
+            color: #2c3e5c;
+        }
+        .evasao-bloco input {
+            width: 90%;
+            border: 2px solid #b9cde0;
+            border-radius: 60px;
+            padding: 0.8rem 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            background: #f6faff;
+            transition: 0.2s;
+        }
+        .evasao-bloco input:focus {
+            border-color: #1e4a7a;
+            background: white;
+            outline: none;
+        }
+
+        /* COLUNA 3: EXPERIÊNCIA – AGORA COM CAMPOS BEM MAIS LARGOS */
+        .coluna-experiencia {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .experiencia-wrapper {
+            background: #d4e0ed;
+            border-radius: 40px;
+            padding: 1.5rem 1.8rem;  /* padding lateral aumentado */
+            border: 1px solid #9bb0c9;
+        }
+        .experiencia-wrapper h3 {
+            margin: 0 0 1.5rem 0;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #1e2b40;
+            text-align: center;
+            border-bottom: 1px dashed #64748b;
+            padding-bottom: 0.3rem;
+        }
+        .exp-duas-colunas {
+            display: flex;
+            gap: 2.5rem;            /* mais espaço entre colunas */
+            justify-content: center;
+        }
+        .exp-coluna {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            width: 100%;
+            min-width: 200px;        /* garante largura mínima confortável */
+        }
+        .exp-campo {
+            background: white;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #7e96b5;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .exp-campo input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            padding: 1rem 1.5rem;     /* padding generoso: altura e laterais */
+            font-size: 1.1rem;         /* fonte ligeiramente maior */
+            font-weight: 500;
+            color: #122b44;
+            border-radius: 60px;
+        }
+        .exp-campo input:focus {
+            outline: 2px solid #2563eb;
+            background: #f0f6ff;
+        }
+        .exp-campo input::placeholder {
+            color: #6f85a0;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        /* COLUNA 4: PV, PF, Esp, Medo (checkboxes) */
+        .coluna-checkboxes {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .contadores-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            background: #d9e2ef;
+            border-radius: 40px;
+            padding: 1.5rem 1.2rem;
+            border: 1px solid #8ba0bc;
+        }
+        .contador-bloco {
+            background: white;
+            border-radius: 30px;
+            padding: 1rem 0.8rem;
+            text-align: center;
+            border: 1px solid #a1b6d0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .contador-bloco h4 {
+            margin: 0 0 0.8rem 0;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #0c3b5e;
+            letter-spacing: 0.5px;
+        }
+        .checkbox-line {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem 0.9rem;
+        }
+        .checkbox-line label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #1e2f45;
+            cursor: pointer;
+        }
+        .checkbox-line input[type="checkbox"] {
+            width: 1.2rem;
+            height: 1.2rem;
+            accent-color: #1e4a7a;
+            cursor: pointer;
+        }
+
+        /* LINHA INFERIOR: ANOTAÇÕES GRANDES */
+        .linha-anotacoes {
+            width: 100%;
+            margin-top: 2rem;
+        }
+        .anotacoes-bloco {
+            background: #e2e9f3;
+            border-radius: 40px;
+            padding: 1.5rem 2rem;
+            border: 1px solid #8da1bd;
+        }
+        .anotacoes-bloco label {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #0f2c4e;
+            display: block;
+            margin-bottom: 1rem;
+            margin-left: 0.5rem;
+        }
+        .anotacoes-bloco textarea {
+            width: 100%;
+            border: 2px solid #a7bbd5;
+            border-radius: 32px;
+            padding: 1.5rem 2rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            background: white;
+            resize: vertical;
+            min-height: 220px;
+            font-family: inherit;
+            transition: 0.2s;
+        }
+        .anotacoes-bloco textarea:focus {
+            border-color: #2660a9;
+            outline: none;
+            background: #ffffff;
+        }
+
+        @media (max-width: 1200px) {
+            .grid-superior {
+                grid-template-columns: 1fr 1fr 1.5fr;
+                gap: 1.5rem;
+            }
+            .coluna-checkboxes {
+                grid-column: span 2;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 900px) {
+            .grid-superior {
+                grid-template-columns: 1fr;
+            }
+            .coluna-checkboxes {
+                grid-column: auto;
+            }
+        }
+        .save-toast {
+            text-align: right;
+            font-size: 0.8rem;
+            color: #2c5f2d;
+            margin-top: 1.2rem;
+            font-weight: 500;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+<div class="ficha-container">
+    <h1>📋 FICHA · EXPERIÊNCIA COM CAMPO LARGO (3+ PALAVRAS)</h1>
+    <div class="sub">10 slots PV · PF · ESP · MEDO | anotações amplas na base</div>
+
+    <!-- GRADE SUPERIOR -->
+    <div class="grid-superior">
+        <!-- COLUNA 1: Nome, Ancestralidade, Comunidade + atributos -->
+        <div class="coluna-esquerda">
+            <div class="linha-tres-campos">
+                <div class="campo-bloco">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" placeholder="ex: Lyra Silvertongue">
+                </div>
+                <div class="campo-bloco">
+                    <label for="ancestralidade">Ancestralidade</label>
+                    <input type="text" id="ancestralidade" placeholder="elfo, anão...">
+                </div>
+                <div class="campo-bloco">
+                    <label for="comunidade">Comunidade</label>
+                    <input type="text" id="comunidade" placeholder="clã / tribo">
+                </div>
+            </div>
+
+            <div class="atributos-grid">
+                <div class="atributo-item"><label for="agi">Agilidade</label><input type="text" id="agi" placeholder="0"></div>
+                <div class="atributo-item"><label for="forca">Força</label><input type="text" id="forca" placeholder="0"></div>
+                <div class="atributo-item"><label for="acu">Acuidade</label><input type="text" id="acu" placeholder="0"></div>
+                <div class="atributo-item"><label for="inst">Instinto</label><input type="text" id="inst" placeholder="0"></div>
+                <div class="atributo-item"><label for="pres">Presença</label><input type="text" id="pres" placeholder="0"></div>
+                <div class="atributo-item"><label for="conh">Conhecimento</label><input type="text" id="conh" placeholder="0"></div>
+            </div>
+        </div>
+
+        <!-- COLUNA 2: EVASÕES -->
+        <div class="coluna-evasoes">
+            <div class="evasao-bloco"><label>EVASÃO <small>física</small></label><input type="text" id="evasao_fis" placeholder="ex: 12"></div>
+            <div class="evasao-bloco"><label>EVASÃO <small>social</small></label><input type="text" id="evasao_soc" placeholder="ex: 10"></div>
+            <div class="evasao-bloco"><label>EVASÃO <small>mental</small></label><input type="text" id="evasao_men" placeholder="ex: 8"></div>
+        </div>
+
+        <!-- COLUNA 3: EXPERIÊNCIA (10 campos LARGOS) -->
+        <div class="coluna-experiencia">
+            <div class="experiencia-wrapper">
+                <h3>⚡ Experiência (espaço para três palavras ou mais)</h3>
+                <div class="exp-duas-colunas">
+                    <div class="exp-coluna">
+                        <div class="exp-campo"><input type="text" id="exp1" placeholder="ex: Iniciação élfica secreta"></div>
+                        <div class="exp-campo"><input type="text" id="exp2" placeholder="ex: Luta de clãs rival"></div>
+                        <div class="exp-campo"><input type="text" id="exp3" placeholder="ex: Túmulo antigo amaldiçoado"></div>
+                        <div class="exp-campo"><input type="text" id="exp4" placeholder="ex: Juramento quebrado por amor"></div>
+                        <div class="exp-campo"><input type="text" id="exp5" placeholder="ex: Armadilha desarmada com maestria"></div>
+                    </div>
+                    <div class="exp-coluna">
+                        <div class="exp-campo"><input type="text" id="exp6" placeholder="ex: Visão do além espiritual"></div>
+                        <div class="exp-campo"><input type="text" id="exp7" placeholder="ex: Ninar dragão ancião"></div>
+                        <div class="exp-campo"><input type="text" id="exp8" placeholder="ex: Código dos heróis antigos"></div>
+                        <div class="exp-campo"><input type="text" id="exp9" placeholder="ex: Poção do caos instável"></div>
+                        <div class="exp-campo"><input type="text" id="exp10" placeholder="ex: Amuleto perdido no mar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COLUNA 4: PV, PF, Esp, Medo (checkboxes) -->
+        <div class="coluna-checkboxes">
+            <div class="contadores-grid">
+                <!-- PV -->
+                <div class="contador-bloco">
+                    <h4>🩸 PV</h4>
+                    <div class="checkbox-line" id="pv-checkboxes"></div>
+                </div>
+                <!-- PF -->
+                <div class="contador-bloco">
+                    <h4>⚡ PF</h4>
+                    <div class="checkbox-line" id="pf-checkboxes"></div>
+                </div>
+                <!-- Esp -->
+                <div class="contador-bloco">
+                    <h4>🔮 Esp</h4>
+                    <div class="checkbox-line" id="esp-checkboxes"></div>
+                </div>
+                <!-- Medo -->
+                <div class="contador-bloco">
+                    <h4>😨 Medo</h4>
+                    <div class="checkbox-line" id="medo-checkboxes"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LINHA INFERIOR: ANOTAÇÕES -->
+    <div class="linha-anotacoes">
+        <div class="anotacoes-bloco">
+            <label for="anotacoes">📝 Anotações, objetos, segredos</label>
+            <textarea id="anotacoes" placeholder="Escreva aqui itens, aliados, mapas, história do personagem..."></textarea>
+        </div>
+    </div>
+
+    <div class="save-toast" id="saveToast">💾 dados salvos no navegador (offline)</div>
+</div>
+
+<script>
+    (function() {
+        // IDs de campos de texto
+        const camposTextoIds = [
+            'nome', 'ancestralidade', 'comunidade',
+            'agi', 'forca', 'acu', 'inst', 'pres', 'conh',
+            'evasao_fis', 'evasao_soc', 'evasao_men',
+            'exp1', 'exp2', 'exp3', 'exp4', 'exp5', 'exp6', 'exp7', 'exp8', 'exp9', 'exp10',
+            'anotacoes'
+        ];
+
+        function carregarTextos() {
+            camposTextoIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    const saved = localStorage.getItem(`ficha_larga_${id}`);
+                    if (saved !== null) el.value = saved;
+                }
+            });
+        }
+
+        function salvarTexto(id) {
+            const el = document.getElementById(id);
+            if (el) localStorage.setItem(`ficha_larga_${id}`, el.value);
+        }
+
+        // CHECKBOXES
+        const contadores = ['pv', 'pf', 'esp', 'medo'];
+
+        function criarCheckboxes() {
+            contadores.forEach(cat => {
+                const container = document.getElementById(`${cat}-checkboxes`);
+                if (!container) return;
+                container.innerHTML = '';
+                for (let i = 1; i <= 10; i++) {
+                    const chkId = `chk_${cat}_${i}`;
+                    const label = document.createElement('label');
+                    label.htmlFor = chkId;
+                    label.textContent = i;
+
+                    const chk = document.createElement('input');
+                    chk.type = 'checkbox';
+                    chk.id = chkId;
+
+                    label.prepend(chk);
+                    container.appendChild(label);
+                }
+            });
+        }
+
+        function carregarCheckboxes() {
+            for (let cat of contadores) {
+                for (let i = 1; i <= 10; i++) {
+                    const chk = document.getElementById(`chk_${cat}_${i}`);
+                    if (chk) {
+                        const val = localStorage.getItem(`chk_${cat}_${i}`);
+                        chk.checked = (val === 'true');
+                    }
+                }
+            }
+        }
+
+        function salvarCheckbox(id) {
+            const chk = document.getElementById(id);
+            if (chk) localStorage.setItem(id, chk.checked);
+        }
+
+        function atualizarToast() {
+            const toast = document.getElementById('saveToast');
+            toast.innerText = '💾 salvo • ' + new Date().toLocaleTimeString();
+            clearTimeout(window.toastTimer);
+            window.toastTimer = setTimeout(() => {
+                toast.innerText = '💾 dados salvos no navegador (offline)';
+            }, 1800);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            criarCheckboxes();
+            carregarTextos();
+            carregarCheckboxes();
+
+            camposTextoIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('input', () => {
+                        salvarTexto(id);
+                        atualizarToast();
+                    });
+                }
+            });
+
+            // eventos checkboxes
+            contadores.forEach(cat => {
+                for (let i = 1; i <= 10; i++) {
+                    const chk = document.getElementById(`chk_${cat}_${i}`);
+                    if (chk) {
+                        chk.addEventListener('change', (e) => {
+                            salvarCheckbox(e.target.id);
+                            atualizarToast();
+                        });
+                    }
+                }
+            });
+
+            window.addEventListener('beforeunload', () => {
+                camposTextoIds.forEach(id => salvarTexto(id));
+                for (let cat of contadores) {
+                    for (let i = 1; i <= 10; i++) {
+                        const chk = document.getElementById(`chk_${cat}_${i}`);
+                        if (chk) localStorage.setItem(`chk_${cat}_${i}`, chk.checked);
+                    }
+                }
+            });
+        });
+    })();
+</script>
+</body>
+</html>
