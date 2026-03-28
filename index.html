@@ -24,7 +24,7 @@
             background: #f8fafc;
             border-radius: 1.5rem;
             box-shadow: 0 20px 35px -8px rgba(0,20,30,0.3);
-            padding: 1.25rem;
+            padding: 1.5rem;
             border: 1px solid #cbd5e1;
         }
         @media (min-width: 768px) {
@@ -34,7 +34,7 @@
         }
         h1 {
             margin: 0 0 0.25rem 0;
-            font-weight: 400;
+            font-weight: 500;
             font-size: 1.4rem;
             letter-spacing: 1px;
             color: #0f172a;
@@ -52,339 +52,70 @@
             font-size: 0.8rem;
             color: #475569;
             margin-top: -0.2rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
             font-style: italic;
         }
 
-        /* GRADE SUPERIOR – responsiva */
-        .grid-superior {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.25rem;
-            margin-bottom: 1.5rem;
-        }
-        @media (min-width: 768px) {
-            .grid-superior {
-                grid-template-columns: 1fr 1fr;
-                gap: 1.5rem;
-            }
-        }
-        @media (min-width: 1100px) {
-            .grid-superior {
-                grid-template-columns: 1.2fr 0.9fr 1.6fr 1.2fr;
-            }
-        }
-
-        /* COLUNA 1 (esquerda): nome/ancestralidade/comunidade + atributos */
-        .coluna-esquerda {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-        .linha-tres-campos {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-        .campo-bloco {
-            flex: 1 1 100px;
-            background: white;
-            border-radius: 20px;
-            padding: 0.6rem 0.5rem 0.5rem;
-            box-shadow: inset 0 1px 4px #cbd5e1, 0 2px 4px rgba(0,0,0,0.05);
-            border: 1px solid #cbd5e1;
-        }
-        .campo-bloco label {
-            display: block;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-            color: #334155;
-            margin-bottom: 0.2rem;
-        }
-        .campo-bloco input {
-            width: 100%;
-            border: none;
-            background: #f1f5f9;
-            border-radius: 40px;
-            padding: 0.5rem 0.8rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #0f172a;
-            outline: 1px solid transparent;
-            transition: 0.15s;
-        }
-        .campo-bloco input:focus {
-            outline: 2px solid #3b82f6;
-            background: #ffffff;
-        }
-
-        .atributos-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.6rem;
-            background: #e9eef3;
-            padding: 1rem;
-            border-radius: 32px;
-            border: 1px solid #b9c7da;
-        }
-        .atributo-item {
-            background: white;
-            border-radius: 30px;
-            padding: 0.4rem 0.2rem;
-            text-align: center;
-            box-shadow: 0 2px 5px #00000010;
-        }
-        .atributo-item label {
-            font-size: 0.65rem;
-            font-weight: 600;
-            color: #1e293b;
-            display: block;
-            text-transform: uppercase;
-        }
-        .atributo-item input {
-            width: 80%;
-            border: none;
-            background: #f1f4f9;
-            border-radius: 30px;
-            padding: 0.3rem 0.4rem;
-            text-align: center;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #0b1e33;
-            margin-top: 2px;
-        }
-        .atributo-item input:focus {
-            outline: 2px solid #2563eb;
-            background: white;
-        }
-
-        /* COLUNA 2: evasões */
-        .coluna-evasoes {
-            background: #d9e2ef;
-            border-radius: 36px;
-            padding: 1.2rem 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-            border: 1px solid #a5b8d0;
-            box-shadow: inset 0 2px 6px #a5b8d080;
-        }
-        .evasao-bloco {
-            background: white;
-            border-radius: 40px;
-            padding: 0.8rem 0.5rem;
-            text-align: center;
-            border: 1px solid #a0b4cd;
-        }
-        .evasao-bloco label {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: #0c4a6e;
-            display: block;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
-        .evasao-bloco label small {
-            font-weight: 400;
-            font-size: 0.7rem;
-            color: #2c3e5c;
-        }
-        .evasao-bloco input {
-            width: 90%;
-            border: 2px solid #b9cde0;
+        /* SEÇÃO LIMIARES - LAYOUT EM LINHA ÚNICA */
+        .secao-limiares {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             border-radius: 60px;
-            padding: 0.6rem 0.8rem;
-            font-size: 1rem;
-            font-weight: 600;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        .titulo-limiares {
             text-align: center;
-            background: #f6faff;
-        }
-        .evasao-bloco input:focus {
-            border-color: #1e4a7a;
-            background: white;
-            outline: none;
-        }
-
-        /* COLUNA 3: EXPERIÊNCIA */
-        .coluna-experiencia {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        .experiencia-wrapper {
-            background: #d4e0ed;
-            border-radius: 36px;
-            padding: 1.2rem;
-            border: 1px solid #9bb0c9;
-        }
-        .experiencia-wrapper h3 {
-            margin: 0 0 1rem 0;
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: #1e2b40;
-            text-align: center;
-            border-bottom: 1px dashed #64748b;
-            padding-bottom: 0.3rem;
-        }
-        .exp-duas-colunas {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-        @media (min-width: 550px) {
-            .exp-duas-colunas {
-                flex-direction: row;
-                gap: 1rem;
-            }
-        }
-        .exp-coluna {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-            flex: 1;
-        }
-        .exp-campo {
-            background: white;
-            border-radius: 60px;
-            display: flex;
-            align-items: center;
-            border: 1px solid #7e96b5;
-            width: 100%;
-        }
-        .exp-campo input {
-            width: 100%;
-            border: none;
-            background: transparent;
-            padding: 0.7rem 1rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #122b44;
-            border-radius: 60px;
-        }
-        .exp-campo input:focus {
-            outline: 2px solid #2563eb;
-            background: #f0f6ff;
-        }
-        .exp-campo input::placeholder {
-            color: #6f85a0;
+            color: #f1f5f9;
             font-size: 0.85rem;
-            font-style: italic;
-        }
-
-        /* COLUNA 4: PV, PF, Esp, Medo + NOVA SEÇÃO LIMIARES */
-        .coluna-checkboxes {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        .contadores-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            background: #d9e2ef;
-            border-radius: 36px;
-            padding: 1rem;
-            border: 1px solid #8ba0bc;
-        }
-        .contador-bloco {
-            background: white;
-            border-radius: 28px;
-            padding: 0.7rem 0.5rem;
-            text-align: center;
-            border: 1px solid #a1b6d0;
-        }
-        .contador-bloco h4 {
-            margin: 0 0 0.6rem 0;
-            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             font-weight: 600;
-            color: #0c3b5e;
+            margin-bottom: 1rem;
         }
-        .checkbox-line {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.4rem 0.7rem;
-        }
-        .checkbox-line label {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.2rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #1e2f45;
-            cursor: pointer;
-        }
-        .checkbox-line input[type="checkbox"] {
-            width: 1.1rem;
-            height: 1.1rem;
-            accent-color: #1e4a7a;
-            cursor: pointer;
-        }
-
-        /* SEÇÃO LIMIARES DE DANO (NOVA) */
-        .limiares-bloco {
-            background: #cbdde9;
-            border-radius: 36px;
-            padding: 1rem;
-            border: 1px solid #8ba0bc;
-            box-shadow: inset 0 1px 3px #a5b8d080;
-        }
-        .limiares-bloco h4 {
-            margin: 0 0 0.75rem 0;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #0f3b5c;
-            text-align: center;
-            letter-spacing: 0.5px;
-        }
-        .linha-limiar {
+        .linha-limiares {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 12px;
-            margin-bottom: 16px;
+            gap: 0.5rem;
             flex-wrap: wrap;
-            background: #f1f5f9;
-            padding: 8px 12px;
-            border-radius: 60px;
-            border: 1px solid #b9cde0;
         }
-        .linha-limiar:last-child {
-            margin-bottom: 0;
-        }
-        .linha-simbolo {
+        .item-limiar {
             display: flex;
-            align-items: baseline;
-            gap: 6px;
-            min-width: 110px;
-            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.75rem;
+            background: #f1f5f9;
+            padding: 0.5rem 1rem;
+            border-radius: 48px;
+            flex: 1;
+            min-width: 140px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
-        .linha-simbolo .linha {
-            width: 32px;
+        .linha-visual {
+            width: 30px;
             height: 3px;
-            background-color: #2c3e5c;
+            background: #334155;
             border-radius: 3px;
         }
-        .linha-simbolo .texto-pv {
-            font-weight: 700;
+        .texto-pv {
+            font-weight: 800;
             font-size: 0.9rem;
-            color: #1e293b;
-            background: #e2e8f0;
-            padding: 2px 8px;
+            color: #0f172a;
+            background: #cbd5e1;
+            padding: 4px 10px;
             border-radius: 30px;
+            min-width: 65px;
+            text-align: center;
         }
         .campo-limiar {
             flex: 1;
-            min-width: 100px;
+            min-width: 70px;
         }
         .campo-limiar input {
             width: 100%;
-            border: 2px solid #9bb0c9;
-            border-radius: 48px;
-            padding: 8px 12px;
+            border: 2px solid #94a3b8;
+            border-radius: 40px;
+            padding: 8px 8px;
             font-size: 1rem;
             font-weight: 600;
             text-align: center;
@@ -392,231 +123,440 @@
             transition: 0.2s;
         }
         .campo-limiar input:focus {
-            border-color: #2563eb;
+            border-color: #3b82f6;
             outline: none;
-            background: #ffffff;
-            box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
+            box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
         }
-        .consequencia-tag {
+        .consequencia-badge {
             font-size: 0.7rem;
-            background: #334155;
+            background: #ef4444;
             color: white;
-            padding: 4px 8px;
+            padding: 4px 10px;
             border-radius: 30px;
-            font-weight: 500;
-            letter-spacing: 0.3px;
+            font-weight: 600;
+            white-space: nowrap;
         }
-        @media (max-width: 480px) {
-            .linha-limiar {
+        @media (max-width: 850px) {
+            .linha-limiares {
                 flex-direction: column;
-                align-items: stretch;
             }
-            .linha-simbolo {
-                justify-content: center;
-                margin-bottom: 4px;
+            .item-limiar {
+                width: 100%;
             }
-            .campo-limiar {
-                min-width: auto;
+            .secao-limiares {
+                padding: 1rem;
             }
         }
 
-        /* ANOTAÇÕES */
-        .linha-anotacoes {
+        /* GRADE PRINCIPAL - reorganizada */
+        .grid-principal {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .grid-principal {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 1024px) {
+            .grid-principal {
+                grid-template-columns: 1.2fr 1fr 1.2fr;
+            }
+        }
+
+        /* CARD BÁSICO */
+        .card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 1.2rem;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .card h3 {
+            margin: 0 0 1rem 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e293b;
+            border-left: 4px solid #3b82f6;
+            padding-left: 0.75rem;
+        }
+
+        /* INFORMAÇÕES BÁSICAS */
+        .linha-campos {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.2rem;
+        }
+        .campo-basico {
+            flex: 1;
+            min-width: 100px;
+        }
+        .campo-basico label {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 0.25rem;
+        }
+        .campo-basico input {
             width: 100%;
+            border: 1px solid #cbd5e1;
+            border-radius: 40px;
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
+            background: #f8fafc;
+            transition: 0.15s;
+        }
+        .campo-basico input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            background: white;
+        }
+
+        /* ATRIBUTOS */
+        .atributos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.6rem;
+        }
+        .atributo-item {
+            background: #f1f5f9;
+            border-radius: 40px;
+            padding: 0.5rem;
+            text-align: center;
+        }
+        .atributo-item label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #475569;
+            display: block;
+            text-transform: uppercase;
+        }
+        .atributo-item input {
+            width: 80%;
+            border: none;
+            background: white;
+            border-radius: 30px;
+            padding: 0.4rem;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+        .atributo-item input:focus {
+            outline: 2px solid #3b82f6;
+        }
+
+        /* EVASÕES */
+        .evasoes-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        .evasao-item {
+            background: #f1f5f9;
+            border-radius: 48px;
+            padding: 0.6rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        .evasao-item label {
+            font-weight: 700;
+            color: #0c4a6e;
+            font-size: 0.9rem;
+            min-width: 80px;
+        }
+        .evasao-item label small {
+            font-weight: 400;
+            font-size: 0.7rem;
+        }
+        .evasao-item input {
+            flex: 1;
+            border: 1px solid #cbd5e1;
+            border-radius: 40px;
+            padding: 0.6rem 1rem;
+            text-align: center;
+            font-weight: 600;
+            background: white;
+        }
+
+        /* EXPERIÊNCIAS */
+        .experiencias-lista {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            max-height: 320px;
+            overflow-y: auto;
+            padding-right: 0.3rem;
+        }
+        .exp-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 48px;
+        }
+        .exp-item input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            padding: 0.7rem 1rem;
+            font-size: 0.85rem;
+            border-radius: 48px;
+        }
+        .exp-item input:focus {
+            outline: 2px solid #3b82f6;
+            background: white;
+        }
+
+        /* CHECKBOXES PV/PF/ESP/MEDO */
+        .recursos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        .recurso-card {
+            background: #f1f5f9;
+            border-radius: 24px;
+            padding: 0.8rem;
+            text-align: center;
+        }
+        .recurso-card h4 {
+            margin: 0 0 0.6rem 0;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.4rem;
+        }
+        .checkbox-group label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            background: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 30px;
+            border: 1px solid #cbd5e1;
+        }
+        .checkbox-group input {
+            width: 1rem;
+            height: 1rem;
+            accent-color: #3b82f6;
+            cursor: pointer;
+        }
+
+        /* ANOTAÇÕES */
+        .anotacoes-area {
             margin-top: 1.5rem;
         }
-        .anotacoes-bloco {
-            background: #e2e9f3;
-            border-radius: 36px;
+        .anotacoes-card {
+            background: #fef9e3;
+            border-radius: 28px;
             padding: 1.2rem;
-            border: 1px solid #8da1bd;
+            border: 1px solid #fde047;
         }
-        .anotacoes-bloco label {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #0f2c4e;
+        .anotacoes-card label {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #854d0e;
             display: block;
             margin-bottom: 0.8rem;
-            margin-left: 0.5rem;
         }
-        .anotacoes-bloco textarea {
+        .anotacoes-card textarea {
             width: 100%;
-            border: 2px solid #a7bbd5;
-            border-radius: 28px;
-            padding: 1rem 1.2rem;
-            font-size: 0.95rem;
+            border: 1px solid #facc15;
+            border-radius: 24px;
+            padding: 1rem;
+            font-size: 0.9rem;
             line-height: 1.5;
             background: white;
             resize: vertical;
-            min-height: 160px;
+            min-height: 120px;
             font-family: inherit;
         }
-        .anotacoes-bloco textarea:focus {
-            border-color: #2660a9;
+        .anotacoes-card textarea:focus {
             outline: none;
+            border-color: #eab308;
+            box-shadow: 0 0 0 2px #fde047;
         }
 
         .save-toast {
             text-align: right;
             font-size: 0.75rem;
-            color: #2c5f2d;
+            color: #15803d;
             margin-top: 1rem;
             font-weight: 500;
-            opacity: 0.7;
         }
     </style>
 </head>
 <body>
 <div class="ficha-container">
     <h1>⚔️ DAGGERHEART · LIMIARES EXPANDIDOS</h1>
-    <div class="sub">PV · PF · Esp · Medo | Limiar Maior | Grave | Extremo + Consequência</div>
+    <div class="sub">sistema de dano com consequências | Maior · Grave · Extremo</div>
 
-    <div class="grid-superior">
-        <!-- COLUNA 1: Nome, Ancestralidade, Comunidade + atributos -->
-        <div class="coluna-esquerda">
-            <div class="linha-tres-campos">
-                <div class="campo-bloco">
-                    <label for="nome">Nome</label>
-                    <input type="text" id="nome" placeholder="ex: Lyra Silvertongue">
-                </div>
-                <div class="campo-bloco">
-                    <label for="ancestralidade">Ancestralidade</label>
-                    <input type="text" id="ancestralidade" placeholder="elfo, anão...">
-                </div>
-                <div class="campo-bloco">
-                    <label for="comunidade">Comunidade</label>
-                    <input type="text" id="comunidade" placeholder="clã / tribo">
+    <!-- SEÇÃO LIMIARES (FORMATO SOLICITADO: _______(  )_______(  )_________(  )_________ ) -->
+    <div class="secao-limiares">
+        <div class="titulo-limiares">🛡️ LIMIARES DE DANO</div>
+        <div class="linha-limiares">
+            <!-- 1 PV -->
+            <div class="item-limiar">
+                <div class="linha-visual"></div>
+                <span class="texto-pv">1 PV</span>
+                <div class="campo-limiar">
+                    <input type="text" id="limiar_maior" placeholder="Limiar Maior">
                 </div>
             </div>
+            <!-- 2 PV -->
+            <div class="item-limiar">
+                <div class="linha-visual"></div>
+                <span class="texto-pv">2 PV</span>
+                <div class="campo-limiar">
+                    <input type="text" id="limiar_grave" placeholder="Limiar Grave">
+                </div>
+            </div>
+            <!-- 3 PV -->
+            <div class="item-limiar">
+                <div class="linha-visual"></div>
+                <span class="texto-pv">3 PV</span>
+                <div class="campo-limiar">
+                    <input type="text" id="limiar_extremo" placeholder="Limiar Extremo (2x Grave)">
+                </div>
+            </div>
+            <!-- 3 PV + CONSEQUÊNCIA -->
+            <div class="item-limiar">
+                <div class="linha-visual"></div>
+                <span class="texto-pv">3 PV</span>
+                <span class="consequencia-badge">+ CONSEQUÊNCIA</span>
+                <div class="campo-limiar">
+                    <input type="text" id="limiar_extremo_conseq" placeholder="Acima do Extremo">
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 0.8rem; font-size: 0.7rem; color: #cbd5e6;">
+            ⚡ Acima do Extremo: 3 HP + consequência (leve → média → grave)
+        </div>
+    </div>
 
+    <!-- GRADE PRINCIPAL REORGANIZADA -->
+    <div class="grid-principal">
+        <!-- COLUNA ESQUERDA: Identidade + Atributos -->
+        <div class="card">
+            <h3>📖 IDENTIDADE</h3>
+            <div class="linha-campos">
+                <div class="campo-basico">
+                    <label>NOME</label>
+                    <input type="text" id="nome" placeholder="Nome do personagem">
+                </div>
+                <div class="campo-basico">
+                    <label>ANCESTRALIDADE</label>
+                    <input type="text" id="ancestralidade" placeholder="Elfo, Anão...">
+                </div>
+                <div class="campo-basico">
+                    <label>COMUNIDADE</label>
+                    <input type="text" id="comunidade" placeholder="Clã / Tribo">
+                </div>
+            </div>
+            <h3>⚙️ ATRIBUTOS</h3>
             <div class="atributos-grid">
-                <div class="atributo-item"><label for="agi">Agilidade</label><input type="text" id="agi" placeholder="0"></div>
-                <div class="atributo-item"><label for="forca">Força</label><input type="text" id="forca" placeholder="0"></div>
-                <div class="atributo-item"><label for="acu">Acuidade</label><input type="text" id="acu" placeholder="0"></div>
-                <div class="atributo-item"><label for="inst">Instinto</label><input type="text" id="inst" placeholder="0"></div>
-                <div class="atributo-item"><label for="pres">Presença</label><input type="text" id="pres" placeholder="0"></div>
-                <div class="atributo-item"><label for="conh">Conhecimento</label><input type="text" id="conh" placeholder="0"></div>
+                <div class="atributo-item"><label>AGI</label><input type="text" id="agi" placeholder="0"></div>
+                <div class="atributo-item"><label>FOR</label><input type="text" id="forca" placeholder="0"></div>
+                <div class="atributo-item"><label>ACU</label><input type="text" id="acu" placeholder="0"></div>
+                <div class="atributo-item"><label>INS</label><input type="text" id="inst" placeholder="0"></div>
+                <div class="atributo-item"><label>PRE</label><input type="text" id="pres" placeholder="0"></div>
+                <div class="atributo-item"><label>CON</label><input type="text" id="conh" placeholder="0"></div>
             </div>
         </div>
 
-        <!-- COLUNA 2: EVASÕES -->
-        <div class="coluna-evasoes">
-            <div class="evasao-bloco"><label>EVASÃO <small>física</small></label><input type="text" id="evasao_fis" placeholder="ex: 12"></div>
-            <div class="evasao-bloco"><label>EVASÃO <small>social</small></label><input type="text" id="evasao_soc" placeholder="ex: 10"></div>
-            <div class="evasao-bloco"><label>EVASÃO <small>mental</small></label><input type="text" id="evasao_men" placeholder="ex: 8"></div>
-        </div>
-
-        <!-- COLUNA 3: EXPERIÊNCIA -->
-        <div class="coluna-experiencia">
-            <div class="experiencia-wrapper">
-                <h3>⚡ Experiências</h3>
-                <div class="exp-duas-colunas">
-                    <div class="exp-coluna">
-                        <div class="exp-campo"><input type="text" id="exp1" placeholder="Iniciação élfica"></div>
-                        <div class="exp-campo"><input type="text" id="exp2" placeholder="Luta de clãs"></div>
-                        <div class="exp-campo"><input type="text" id="exp3" placeholder="Túmulo amaldiçoado"></div>
-                        <div class="exp-campo"><input type="text" id="exp4" placeholder="Juramento quebrado"></div>
-                        <div class="exp-campo"><input type="text" id="exp5" placeholder="Armadilha lendária"></div>
-                    </div>
-                    <div class="exp-coluna">
-                        <div class="exp-campo"><input type="text" id="exp6" placeholder="Visão espiritual"></div>
-                        <div class="exp-campo"><input type="text" id="exp7" placeholder="Ninar dragão ancião"></div>
-                        <div class="exp-campo"><input type="text" id="exp8" placeholder="Código heróico"></div>
-                        <div class="exp-campo"><input type="text" id="exp9" placeholder="Poção do caos"></div>
-                        <div class="exp-campo"><input type="text" id="exp10" placeholder="Amuleto perdido"></div>
-                    </div>
+        <!-- COLUNA CENTRAL: Evasões + Experiências -->
+        <div class="card">
+            <h3>🛡️ EVASÕES</h3>
+            <div class="evasoes-grid">
+                <div class="evasao-item">
+                    <label>EVASÃO <small>física</small></label>
+                    <input type="text" id="evasao_fis" placeholder="Valor">
                 </div>
+                <div class="evasao-item">
+                    <label>EVASÃO <small>social</small></label>
+                    <input type="text" id="evasao_soc" placeholder="Valor">
+                </div>
+                <div class="evasao-item">
+                    <label>EVASÃO <small>mental</small></label>
+                    <input type="text" id="evasao_men" placeholder="Valor">
+                </div>
+            </div>
+            <h3 style="margin-top: 1.2rem;">✨ EXPERIÊNCIAS</h3>
+            <div class="experiencias-lista">
+                <div class="exp-item"><input type="text" id="exp1" placeholder="Experiência 1"></div>
+                <div class="exp-item"><input type="text" id="exp2" placeholder="Experiência 2"></div>
+                <div class="exp-item"><input type="text" id="exp3" placeholder="Experiência 3"></div>
+                <div class="exp-item"><input type="text" id="exp4" placeholder="Experiência 4"></div>
+                <div class="exp-item"><input type="text" id="exp5" placeholder="Experiência 5"></div>
+                <div class="exp-item"><input type="text" id="exp6" placeholder="Experiência 6"></div>
+                <div class="exp-item"><input type="text" id="exp7" placeholder="Experiência 7"></div>
+                <div class="exp-item"><input type="text" id="exp8" placeholder="Experiência 8"></div>
+                <div class="exp-item"><input type="text" id="exp9" placeholder="Experiência 9"></div>
+                <div class="exp-item"><input type="text" id="exp10" placeholder="Experiência 10"></div>
             </div>
         </div>
 
-        <!-- COLUNA 4: PV, PF, Esp, Medo + LIMIARES -->
-        <div class="coluna-checkboxes">
-            <div class="contadores-grid">
-                <div class="contador-bloco"><h4>🩸 PV</h4><div class="checkbox-line" id="pv-checkboxes"></div></div>
-                <div class="contador-bloco"><h4>⚡ PF</h4><div class="checkbox-line" id="pf-checkboxes"></div></div>
-                <div class="contador-bloco"><h4>🔮 Esp</h4><div class="checkbox-line" id="esp-checkboxes"></div></div>
-                <div class="contador-bloco"><h4>😨 Medo</h4><div class="checkbox-line" id="medo-checkboxes"></div></div>
+        <!-- COLUNA DIREITA: Recursos (PV/PF/Esp/Medo) + Anotações resumidas -->
+        <div class="card">
+            <h3>💪 RECURSOS</h3>
+            <div class="recursos-grid">
+                <div class="recurso-card"><h4>🩸 PV</h4><div class="checkbox-group" id="pv-checkboxes"></div></div>
+                <div class="recurso-card"><h4>⚡ PF</h4><div class="checkbox-group" id="pf-checkboxes"></div></div>
+                <div class="recurso-card"><h4>🔮 Esp</h4><div class="checkbox-group" id="esp-checkboxes"></div></div>
+                <div class="recurso-card"><h4>😨 Medo</h4><div class="checkbox-group" id="medo-checkboxes"></div></div>
             </div>
-
-            <!-- NOVA SEÇÃO: LIMIARES DE DANO -->
-            <div class="limiares-bloco">
-                <h4>🛡️ LIMIARES DE DANO</h4>
-                <!-- 1 PV -->
-                <div class="linha-limiar">
-                    <div class="linha-simbolo">
-                        <div class="linha"></div>
-                        <span class="texto-pv">1 PV</span>
-                    </div>
-                    <div class="campo-limiar">
-                        <input type="text" id="limiar_menor" placeholder="Limiar Maior" value="">
-                    </div>
-                </div>
-                <!-- 2 PV -->
-                <div class="linha-limiar">
-                    <div class="linha-simbolo">
-                        <div class="linha"></div>
-                        <span class="texto-pv">2 PV</span>
-                    </div>
-                    <div class="campo-limiar">
-                        <input type="text" id="limiar_grave" placeholder="Limiar Grave" value="">
-                    </div>
-                </div>
-                <!-- 3 PV -->
-                <div class="linha-limiar">
-                    <div class="linha-simbolo">
-                        <div class="linha"></div>
-                        <span class="texto-pv">3 PV</span>
-                    </div>
-                    <div class="campo-limiar">
-                        <input type="text" id="limiar_extremo_base" placeholder="Limiar Extremo (2x Grave)" value="">
-                    </div>
-                </div>
-                <!-- 3 PV + CONSEQUÊNCIA -->
-                <div class="linha-limiar">
-                    <div class="linha-simbolo">
-                        <div class="linha"></div>
-                        <span class="texto-pv">3 PV</span>
-                        <span class="consequencia-tag">+ CONSEQUÊNCIA</span>
-                    </div>
-                    <div class="campo-limiar">
-                        <input type="text" id="limiar_extremo_conseq" placeholder="Extremo (igual ou acima)" value="">
-                    </div>
-                </div>
-                <div style="font-size: 0.7rem; text-align: center; margin-top: 12px; color: #2d4a6e;">
-                    ⚠️ Acima do Extremo: 3 HP + consequência (leve → média → grave)
-                </div>
-            </div>
+            <h3 style="margin-top: 0.5rem;">📝 CONSEQUÊNCIAS & MARCADORES</h3>
+            <div class="exp-item" style="margin-bottom: 0.5rem;"><input type="text" id="consequencia_leve" placeholder="Consequência leve (1º Extremo)"></div>
+            <div class="exp-item" style="margin-bottom: 0.5rem;"><input type="text" id="consequencia_media" placeholder="Consequência média (2º Extremo)"></div>
+            <div class="exp-item"><input type="text" id="consequencia_grave" placeholder="Consequência grave (3º+ Extremo)"></div>
         </div>
     </div>
 
-    <!-- ANOTAÇÕES -->
-    <div class="linha-anotacoes">
-        <div class="anotacoes-bloco">
-            <label for="anotacoes">📝 Cicatrizes, consequências, anotações</label>
-            <textarea id="anotacoes" placeholder="Registre marcas, sequelas, consequências leves/médias/graves, itens e história..."></textarea>
+    <!-- ANOTAÇÕES GERAIS -->
+    <div class="anotacoes-area">
+        <div class="anotacoes-card">
+            <label>📜 ANOTAÇÕES LIVRES · ITENS · HISTÓRIA</label>
+            <textarea id="anotacoes" placeholder="Registre aqui itens, aliados, missões, cicatrizes, segredos do personagem..."></textarea>
         </div>
     </div>
 
-    <div class="save-toast" id="saveToast">💾 dados salvos no navegador</div>
+    <div class="save-toast" id="saveToast">💾 salvamento automático</div>
 </div>
 
 <script>
     (function() {
-        // IDs de campos de texto + limiares
+        // IDs de todos os campos de texto (incluindo novos)
         const camposTextoIds = [
             'nome', 'ancestralidade', 'comunidade',
             'agi', 'forca', 'acu', 'inst', 'pres', 'conh',
             'evasao_fis', 'evasao_soc', 'evasao_men',
             'exp1', 'exp2', 'exp3', 'exp4', 'exp5', 'exp6', 'exp7', 'exp8', 'exp9', 'exp10',
             'anotacoes',
-            'limiar_menor', 'limiar_grave', 'limiar_extremo_base', 'limiar_extremo_conseq'
+            'limiar_maior', 'limiar_grave', 'limiar_extremo', 'limiar_extremo_conseq',
+            'consequencia_leve', 'consequencia_media', 'consequencia_grave'
         ];
 
         function carregarTextos() {
             camposTextoIds.forEach(id => {
                 const el = document.getElementById(id);
                 if (el) {
-                    const saved = localStorage.getItem(`ficha_dagger_${id}`);
+                    const saved = localStorage.getItem(`ficha_dh_${id}`);
                     if (saved !== null) el.value = saved;
                 }
             });
@@ -624,10 +564,10 @@
 
         function salvarTexto(id) {
             const el = document.getElementById(id);
-            if (el) localStorage.setItem(`ficha_dagger_${id}`, el.value);
+            if (el) localStorage.setItem(`ficha_dh_${id}`, el.value);
         }
 
-        // CHECKBOXES: PV, PF, Esp, Medo (10 cada)
+        // CHECKBOXES: PV, PF, Esp, Medo
         const contadores = ['pv', 'pf', 'esp', 'medo'];
 
         function criarCheckboxes() {
@@ -673,7 +613,7 @@
             toast.innerText = '💾 salvo • ' + new Date().toLocaleTimeString();
             clearTimeout(window.toastTimer);
             window.toastTimer = setTimeout(() => {
-                toast.innerText = '💾 dados salvos no navegador';
+                toast.innerText = '💾 salvamento automático';
             }, 1800);
         }
 
@@ -682,7 +622,7 @@
             carregarTextos();
             carregarCheckboxes();
 
-            // Eventos para campos de texto
+            // Eventos campos texto
             camposTextoIds.forEach(id => {
                 const el = document.getElementById(id);
                 if (el) {
@@ -693,7 +633,7 @@
                 }
             });
 
-            // Eventos para checkboxes
+            // Eventos checkboxes
             contadores.forEach(cat => {
                 for (let i = 1; i <= 10; i++) {
                     const chk = document.getElementById(`chk_${cat}_${i}`);
