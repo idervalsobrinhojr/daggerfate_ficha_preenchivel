@@ -1,4 +1,4 @@
-const CACHE_NAME = "DaggerFate-v3";
+const CACHE_NAME = "DaggerFate-v4";
 
 const FILES_TO_CACHE = [
   "./",
