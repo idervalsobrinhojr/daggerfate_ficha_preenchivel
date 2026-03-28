@@ -56,91 +56,70 @@
             font-style: italic;
         }
 
-        /* SEÇÃO LIMIARES - FORMATAÇÃO COMPACTA */
+        /* SEÇÃO LIMIARES - APENAS 3 CAMPOS */
         .secao-limiares {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             border-radius: 48px;
-            padding: 0.75rem 1.2rem;
+            padding: 1rem 1.5rem;
             margin-bottom: 1.8rem;
         }
         .titulo-limiares {
             text-align: center;
             color: #f1f5f9;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 600;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
         .linha-limiares {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.5rem;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 1.5rem;
             flex-wrap: wrap;
         }
         .item-limiar {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #f1f5f9;
-            padding: 0.3rem 0.8rem;
-            border-radius: 40px;
             flex: 1;
-            min-width: 130px;
-        }
-        .linha-visual {
-            width: 24px;
-            height: 2px;
-            background: #475569;
-            border-radius: 2px;
-        }
-        .texto-pv {
-            font-weight: 700;
-            font-size: 0.8rem;
-            color: #0f172a;
-            background: #cbd5e1;
-            padding: 2px 8px;
-            border-radius: 30px;
-            min-width: 55px;
+            min-width: 110px;
             text-align: center;
         }
+        .item-limiar .label-dano {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
         .campo-limiar {
-            flex: 1;
-            max-width: 70px;
+            width: 100%;
         }
         .campo-limiar input {
             width: 100%;
-            border: 1px solid #94a3b8;
-            border-radius: 30px;
-            padding: 4px 6px;
-            font-size: 0.85rem;
+            border: 2px solid #4b5563;
+            border-radius: 12px;
+            padding: 0.6rem 0.5rem;
+            font-size: 1rem;
             font-weight: 600;
             text-align: center;
-            background: white;
+            background: #f1f5f9;
+            transition: 0.2s;
         }
         .campo-limiar input:focus {
             border-color: #3b82f6;
             outline: none;
+            background: white;
+            box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
         }
-        .consequencia-badge {
-            font-size: 0.6rem;
-            background: #ef4444;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 30px;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-        @media (max-width: 750px) {
+        @media (max-width: 600px) {
             .linha-limiares {
                 flex-direction: column;
+                gap: 1rem;
             }
             .item-limiar {
                 width: 100%;
-            }
-            .campo-limiar {
-                max-width: 90px;
             }
         }
 
@@ -426,39 +405,30 @@
 <body>
 <div class="ficha-container">
     <h1>⚔️ DAGGERHEART · LIMIARES EXPANDIDOS</h1>
-    <div class="sub">Maior | Grave | Extremo | + Consequência</div>
+    <div class="sub">Maior | Grave | Extremo + Consequência</div>
 
-    <!-- SEÇÃO LIMIARES - COMPACTA -->
+    <!-- SEÇÃO LIMIARES - APENAS 3 CAMPOS -->
     <div class="secao-limiares">
         <div class="titulo-limiares">🛡️ LIMIARES DE DANO</div>
         <div class="linha-limiares">
             <div class="item-limiar">
-                <div class="linha-visual"></div>
-                <span class="texto-pv">1 PV</span>
+                <span class="label-dano">DANO MAIOR</span>
                 <div class="campo-limiar"><input type="text" id="limiar_maior" placeholder=""></div>
             </div>
             <div class="item-limiar">
-                <div class="linha-visual"></div>
-                <span class="texto-pv">2 PV</span>
+                <span class="label-dano">DANO GRAVE</span>
                 <div class="campo-limiar"><input type="text" id="limiar_grave" placeholder=""></div>
             </div>
             <div class="item-limiar">
-                <div class="linha-visual"></div>
-                <span class="texto-pv">3 PV</span>
+                <span class="label-dano">DANO EXTREMO</span>
                 <div class="campo-limiar"><input type="text" id="limiar_extremo" placeholder=""></div>
-            </div>
-            <div class="item-limiar">
-                <div class="linha-visual"></div>
-                <span class="texto-pv">3 PV</span>
-                <span class="consequencia-badge">+ CONSEQ</span>
-                <div class="campo-limiar"><input type="text" id="limiar_extremo_conseq" placeholder=""></div>
             </div>
         </div>
     </div>
 
     <!-- GRADE PRINCIPAL: 2 COLUNAS -->
     <div class="grid-principal">
-        <!-- COLUNA ESQUERDA: IDENTIDADE + ATRIBUTOS + EXPERIÊNCIAS (TODAS VISÍVEIS) -->
+        <!-- COLUNA ESQUERDA: IDENTIDADE + ATRIBUTOS + EXPERIÊNCIAS -->
         <div class="coluna-esquerda">
             <div class="card">
                 <h3>📖 IDENTIDADE</h3>
@@ -565,7 +535,7 @@
             'evasao_fis', 'evasao_soc', 'evasao_men',
             'exp1', 'exp2', 'exp3', 'exp4', 'exp5', 'exp6', 'exp7', 'exp8', 'exp9', 'exp10',
             'anotacoes',
-            'limiar_maior', 'limiar_grave', 'limiar_extremo', 'limiar_extremo_conseq',
+            'limiar_maior', 'limiar_grave', 'limiar_extremo',
             'consequencia_leve', 'consequencia_media', 'consequencia_grave'
         ];
 
